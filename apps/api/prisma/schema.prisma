@@ -1,0 +1,34 @@
+generator client {
+  provider     = "prisma-client"
+  output       = "../src/generated/prisma"
+  moduleFormat = "cjs"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+    id String @id @default(cuid())
+    authId String @unique
+    handle String @unique
+    name String
+    avatarUrl String?
+    bio String?
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    deleteadAt DateTime?
+
+    posts Post[]
+}
+
+model Post {
+    id String @id @default(cuid())
+    content String 
+    authorId String
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    deleteadAt DateTime?
+
+    author User @relation(fields: [authorId], references: [id])
+}
