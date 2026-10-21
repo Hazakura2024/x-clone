@@ -18,26 +18,45 @@ export default function Home() {
           <div className="flex flex-col items-center gap-4">
             <a
               href=""
-              className="flex h-[52px] w-[52px] items-center justify-center rounded-b-full"
+              className="flex h-[52px] w-[52px] items-center justify-center rounded-full hover:bg-gray-100 xl:pr-6"
             >
               <Menu size={40} />
             </a>
             <nav className="flex flex-col gap-1">
-              <Link href="">
+              <Link
+                href=""
+                className="flex w-fit items-center gap-5 rounded-full p-3 text-xl hover:bg-gray-100 xl:pr-6"
+              >
                 <House></House>
+                <span className="hidden xl:inline">ホーム</span>
               </Link>
-              <Link href="">
+              <Link
+                href=""
+                className="flex w-fit items-center gap-5 rounded-full p-3 text-xl hover:bg-gray-100 xl:pr-6"
+              >
                 <Bell></Bell>
+                <span className="hidden xl:inline">通知</span>
               </Link>
-              <Link href="">
+              <Link
+                href=""
+                className="flex w-fit items-center gap-5 rounded-full p-3 text-xl hover:bg-gray-100 xl:pr-6"
+              >
                 <Mail></Mail>
+                <span className="hidden xl:inline">メッセージ</span>
               </Link>
-              <Link href="">
+              <Link
+                href=""
+                className="flex w-fit items-center gap-5 rounded-full p-3 text-xl hover:bg-gray-100 xl:pr-6"
+              >
                 <Bookmark></Bookmark>
+                <span className="hidden xl:inline">ブックマーク</span>
               </Link>
-
-              <Link href="">
+              <Link
+                href=""
+                className="flex w-fit items-center gap-5 rounded-full p-3 text-xl hover:bg-gray-100 xl:pr-6"
+              >
                 <UserRound></UserRound>
+                <span className="hidden xl:inline">プロフィール</span>
               </Link>
             </nav>
           </div>
