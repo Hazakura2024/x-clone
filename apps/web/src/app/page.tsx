@@ -9,6 +9,11 @@ import {
   UserRound,
   X,
   Ellipsis,
+  CircleEllipsis,
+  MessageCircle,
+  Heart,
+  Repeat2,
+  Upload,
 } from "lucide-react";
 import {
   Card,
@@ -27,7 +32,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white text-gray-900">
       <div className=" mx-auto flex max-w-[1280px] justify-center">
-        <header className="border-2 h-screen sticky top-0 px-2 w-[88px] shrink-0 xl:w-[275px]">
+        <header className="h-screen sticky top-0 px-2 w-[88px] shrink-0 xl:w-[275px]">
           <div className="flex flex-col gap-4">
             <a
               href=""
@@ -71,27 +76,132 @@ export default function Home() {
                 <UserRound></UserRound>
                 <span className="hidden xl:inline">プロフィール</span>
               </Link>
+              <Link
+                href=""
+                className="flex w-fit items-center gap-5 rounded-full p-3 text-xl hover:bg-gray-100 xl:pr-6 truncate"
+              >
+                <CircleEllipsis />
+                <span className="hidden xl:inline">もっと見る</span>
+              </Link>
             </nav>
           </div>
         </header>
-        <main className="border-gray-200 w-[600px] h-screen">
-          <header className="sticky top-0 border-b  h-40">
-            <div className="border-2 h-12 flex">
-              <div role="tablist" className="flex">
-                <button>おすすめ</button>
-                <button>フォロー中</button>
+        <main className="border-2 w-[580px] h-screen overflow-y-scroll">
+          <header className="sticky top-0 z-20 w-full border-b  h-12 backdrop-blur-md flex items-center">
+            <button className="flex-1">
+              <div className="relative">
+                <span className="font-bold">おすすめ</span>
+                <div className="absolute -bottom-3 w-full h-1 bg-sky-500 rounded-full"></div>
+              </div>
+            </button>
+            <button className="flex-1">
+              <div>
+                <span className="text-gray-500">フォロー中</span>
+              </div>
+            </button>
+          </header>
+          <div className="">
+            <div className="p-3 flex gap-2 border-y-1">
+              <div>
+                <div className="rounded-full w-10 h-10 bg-blue-500"></div>
+              </div>
+              <div className="w-full">
+                <div className="flex justify-between">
+                  <div className="flex gap-2">
+                    <div className="font-bold">コーヒーショップ</div>
+                    <div className="text-gray-500">@Coffee_shop</div>
+                    <div className="text-gray-500">15時間前</div>
+                  </div>
+                  <button>
+                    <Ellipsis className="text-gray-500 h-5"></Ellipsis>
+                  </button>
+                </div>
+                <div className="mb-2">
+                  歸途、ハワイ大學に一寸用事があったので、ホノルルに立ち寄った。
+                  　ホノルルは、二十五年前に訪ねたことがあるが、その後の發展が目ざましく、まるで隔世の感がある。戰爭中、軍事基地として、政府がうんと金を入れたのと、戰後は引きつづいて、觀光地として繁昌しているので、たいへんな發展ぶりである。
+                  　小さい島で、しかも山が海の近くまでせまっているので、住宅地には、大いに困っている。丘陵地を段々に切って、ずっと山の上まで家が建て込んでいる。しかしどの家の庭にも、立木が多く、また家自身が、白、淡黄、褐色などの單色で、屋根も美しい色のものが多い。そういう家が、鮮かな緑の立木の間に點在しているので、風景をこわすというよりも、むしろ美しく手がはいったという感じである。
+                  　ワイキキの濱なども、立派なホテルが立ち並んで、まるで昔の面影もない。アメリカの金持客を相手にしているらしい、豪華なものばかり賣っている店が、海岸通りに、ずっと並んでいる。氣持のよいのは、海岸が非常に綺麗になっている點で、海水浴場に見られ勝ちな、紙屑や果物の皮などは、全然落ちていない。
+                  　
+                </div>
+                <div className=" flex w-full justify-between">
+                  <button className="flex text-gray-500 items-center">
+                    <MessageCircle className="h-4 " />
+                    <span className="text-sm">400</span>
+                  </button>
+                  <button className="flex text-gray-500 items-center">
+                    <Repeat2 className="h-5 " />
+                    <span className="text-sm">400</span>
+                  </button>
+                  <button className="flex text-gray-500 items-center">
+                    <Heart className="h-5" />
+                    <span className="text-sm">400</span>
+                  </button>
+                  <div className="flex items-center">
+                    <button className="flex text-gray-500">
+                      <Bookmark className="h-5 " />
+                    </button>
+                    <button className="flex text-gray-500">
+                      <Upload className="h-5 " />
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
-          </header>
-          <div></div>
+            <div className="p-3 flex gap-2 border-y-1">
+              <div>
+                <div className="rounded-full w-10 h-10 bg-blue-500"></div>
+              </div>
+              <div className="w-full">
+                <div className="flex justify-between">
+                  <div className="flex gap-2">
+                    <div className="font-bold">コーヒーショップ</div>
+                    <div className="text-gray-500">@Coffee_shop</div>
+                    <div className="text-gray-500">15時間前</div>
+                  </div>
+                  <button>
+                    <Ellipsis className="text-gray-500 h-5"></Ellipsis>
+                  </button>
+                </div>
+                <div className="mb-2">
+                  この島の周圍全部の渚は、ハワイ政廳の所屬になっているそうである。それで海岸近くに大ホテルが建っても、そのすぐ前の渚は、ホテルの占有に出來ない。誰でも何處の渚にも、はいって行くことが出來る。いわば全海岸線は公園になっているわけである。現在の大産業の一つは、觀光事業であるから、政廳の方でも、街を綺麗にすることには大いに力を入れている。道路なども非常に立派で、米本土の道路よりもむしろ良いくらいになっている。
+                  　用事が早くすんだので、ハワイ大學の友人が、半日島の一部をドライヴしてくれた。ホノルルの街から西に一寸はなれたところに、因縁の深い眞珠灣がある。この灣は入口が非常に細く運河のような形になっているので、灣といっても、見たところは、まるで湖である。波は全然ない。鏡のような水面と、それにつづく低い平らな草原とは、どう見ても、北陸の海岸などによく見られる潟である。
+                  　灣に接した平地は、たいてい芝生になっていて、子供たちが、さんさんたる常夏の陽光の下で、ボール遊びをしている。すべてが、あまりにも平和な景色であって、この「湖面」に大きい軍艦が浮んでいる姿は、一寸考えられないくらいである。道路から見えるところには、軍艦らしいものは、一隻も見られなかった。
+                  　十二月八日の朝、この友人は、ホノルルの自宅であの爆音を聞いたさうである［＃「さうである」はママ］。「日曜日の朝だったので、僕は寢ていた」と言っていた。
+                  底本：「百日物語」文藝春秋新社
+                </div>
+                <div className=" flex w-full justify-between">
+                  <button className="flex text-gray-500 items-center">
+                    <MessageCircle className="h-4 " />
+                    <span className="text-sm">400</span>
+                  </button>
+                  <button className="flex text-gray-500 items-center">
+                    <Repeat2 className="h-5 " />
+                    <span className="text-sm">400</span>
+                  </button>
+                  <button className="flex text-gray-500 items-center">
+                    <Heart className="h-5" />
+                    <span className="text-sm">400</span>
+                  </button>
+                  <div className="flex items-center">
+                    <button className="flex text-gray-500">
+                      <Bookmark className="h-5 " />
+                    </button>
+                    <button className="flex text-gray-500">
+                      <Upload className="h-5 " />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </main>
-        <aside className="border-2 sticky top-0 hidden lg:block  px-6  w-[350px] shrink-0 h-screen overflow-y-scroll">
+        <aside className="sticky top-0 hidden lg:block  px-6  w-[350px] shrink-0 h-screen overflow-y-scroll">
           <div className="flex flex-col gap-4">
-            <div className="sticky top-0 bg-white z-50">
-              <Card className="mt-4 gap-2 border rounded-full py-2 px-4 focus-within:border-blue-200 focus-within:ring-2 focus-within:ring-blue-500/30">
+            <div className="sticky top-0 bg-white z-50 pt-4">
+              <Card className=" gap-2 border rounded-full py-2 px-4 focus-within:border-blue-200 focus-within:ring-2 focus-within:ring-blue-500/30">
                 <div className="flex gap-2 items-center">
                   <Search className="text-gray-500"></Search>
-                  <Input className="border-none bg-transparent px-2 shadow-none focus-visible:ring-0 focus"></Input>
+                  <Input className="border-none bg-transparent px-2 shadow-none focus-visible:ring-0"></Input>
                 </div>
               </Card>
             </div>
@@ -154,9 +264,11 @@ export default function Home() {
                 <div className="flex justify-between">
                   <div>
                     <p className="text-gray-500">日本のトレンド</p>
-                    <p className="text font-bold text-[16px]">映画化決定</p>
+                    <p className="font-bold text-[16px]">映画化決定</p>
                   </div>
-                  <Ellipsis></Ellipsis>
+                  <button>
+                    <Ellipsis></Ellipsis>
+                  </button>
                 </div>
               </CardContent>
               <CardContent className="hover:bg-gray-100 py-3">
@@ -165,7 +277,9 @@ export default function Home() {
                     <p className="text-gray-500">トレンド</p>
                     <p className="text font-bold text-[16px]">PHPの脆弱性</p>
                   </div>
-                  <Ellipsis></Ellipsis>
+                  <button>
+                    <Ellipsis></Ellipsis>
+                  </button>
                 </div>
               </CardContent>
               <CardContent className="hover:bg-gray-100 py-3">
@@ -226,7 +340,7 @@ export default function Home() {
                 </div>
               </CardContent>
             </Card>
-            <div className="text-gray-500 text-xs mb-4 leading-loose">
+            <div className="text-gray-500 text-xs mb-4 leading-loose mb-40">
               利用規約 プライバシー cookie アクセシビリティ 広告について
               もっと見る
             </div>
