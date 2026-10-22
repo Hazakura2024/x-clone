@@ -14,6 +14,9 @@ import {
   Heart,
   Repeat2,
   Upload,
+  FaceSlightlySmiling,
+  Box,
+  SquarePen,
 } from "lucide-react";
 import {
   Card,
@@ -31,22 +34,30 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="min-h-screen bg-white text-gray-900">
-      <div className=" mx-auto flex max-w-[1280px] justify-center">
-        <header className="h-screen sticky top-0 px-2 w-[88px] shrink-0 xl:w-[275px]">
-          <div className="flex flex-col gap-4">
-            <a
+      <div className=" mx-auto flex max-w-[1280px] justify-center ">
+        <div className="flex-1"></div>
+        <header className="h-screen sticky top-0 p-2  w-[100px] shrink-0 xl:w-[275px] flex flex-col justify-between ">
+          <div className="flex flex-col items-center xl:items-start gap-2">
+            <Link
               href=""
-              className="flex h-[52px] w-[52px] items-center justify-center rounded-full hover:bg-gray-100 xl:pr-6"
+              className="flex size-12 items-center justify-center rounded-full transition-colors hover:bg-gray-100"
             >
-              <Menu size={40} />
-            </a>
+              <Box className="size-8"></Box>
+            </Link>
             <nav className="flex flex-col gap-1">
               <Link
                 href=""
                 className="flex w-fit items-center gap-5 rounded-full p-3 text-xl hover:bg-gray-100 xl:pr-6 truncate"
               >
                 <House></House>
-                <span className="hidden xl:inline">ホーム</span>
+                <span className="hidden xl:inline font-bold">ホーム</span>
+              </Link>
+              <Link
+                href=""
+                className="flex w-fit items-center gap-5 rounded-full p-3 text-xl hover:bg-gray-100 xl:pr-6 truncate"
+              >
+                <Search />
+                <span className="hidden xl:inline">話題を検索</span>
               </Link>
               <Link
                 href=""
@@ -84,9 +95,28 @@ export default function Home() {
                 <span className="hidden xl:inline">もっと見る</span>
               </Link>
             </nav>
+
+            <Button className="hidden xl:flex rounded-full text-lg w-54 font-bold p-6">
+              ポストする
+            </Button>
+            <Button size="icon" className="xl:hidden rounded-full size-14">
+              <SquarePen className="size-6"></SquarePen>
+            </Button>
+          </div>
+          <div className="flex justify-center xl:justify-between items-start m-4">
+            <div className="flex gap-2 items-center">
+              <div className="h-10 w-10 bg-blue-500 rounded-full"></div>
+              <div className="hidden xl:block">
+                <div className="font-bold">学生エンジニア</div>
+                <div className="text-gray-500">@SE_student_02</div>
+              </div>
+            </div>
+            <button className="hidden xl:flex">
+              <Ellipsis className="text-gray-500 h-5"></Ellipsis>
+            </button>
           </div>
         </header>
-        <main className="border-2 w-[580px] h-screen overflow-y-scroll">
+        <main className="border-2 w-full max-w-[600px] h-screen overflow-y-scroll">
           <header className="sticky top-0 z-20 w-full border-b  h-12 backdrop-blur-md flex items-center">
             <button className="flex-1">
               <div className="relative">
@@ -103,7 +133,7 @@ export default function Home() {
           <div className="">
             <div className="p-3 flex gap-2 border-y-1">
               <div>
-                <div className="rounded-full w-10 h-10 bg-blue-500"></div>
+                <div className="w-10 h-10 bg-blue-500 rounded-full"></div>
               </div>
               <div className="w-full">
                 <div className="flex justify-between">
@@ -136,7 +166,7 @@ export default function Home() {
                     <Heart className="h-5" />
                     <span className="text-sm">400</span>
                   </button>
-                  <div className="flex items-center">
+                  <div className="flex items-center gap-1">
                     <button className="flex text-gray-500">
                       <Bookmark className="h-5 " />
                     </button>
@@ -182,7 +212,7 @@ export default function Home() {
                     <Heart className="h-5" />
                     <span className="text-sm">400</span>
                   </button>
-                  <div className="flex items-center">
+                  <div className="flex items-center gap-1">
                     <button className="flex text-gray-500">
                       <Bookmark className="h-5 " />
                     </button>
@@ -195,7 +225,7 @@ export default function Home() {
             </div>
           </div>
         </main>
-        <aside className="sticky top-0 hidden lg:block  px-6  w-[350px] shrink-0 h-screen overflow-y-scroll">
+        <aside className="sticky top-0 hidden lg:block px-6 w-[400px] shrink-0 h-screen overflow-y-scroll">
           <div className="flex flex-col gap-4">
             <div className="sticky top-0 bg-white z-50 pt-4">
               <Card className=" gap-2 border rounded-full py-2 px-4 focus-within:border-blue-200 focus-within:ring-2 focus-within:ring-blue-500/30">
@@ -206,7 +236,7 @@ export default function Home() {
               </Card>
             </div>
             <Card className="gap-0 pb-0">
-              <CardHeader className="flex justify-between  pb-2">
+              <CardHeader className="flex justify-between pb-2">
                 <h2 className="font-bold text-xl">本日のニュース</h2>
                 <button className="p-1 -m-1 rounded-full hover:bg-gray-100 ">
                   <X className="w-6 h-6" />
@@ -346,6 +376,7 @@ export default function Home() {
             </div>
           </div>
         </aside>
+        <div className="flex-[2]"></div>
       </div>
     </div>
   );
