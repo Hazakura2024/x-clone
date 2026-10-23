@@ -6,7 +6,7 @@ export const cursorPaginationQuerySchema = z.object({
   limit: z.coerce.number().int().min(1).max(50).default(20),
 });
 
-export type CursorPaginationSchema = z.infer<
+export type CursorPaginationQuery = z.infer<
   typeof cursorPaginationQuerySchema
 >;
 

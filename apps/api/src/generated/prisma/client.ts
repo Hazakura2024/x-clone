@@ -49,3 +49,13 @@ export type User = Prisma.UserModel
  * 
  */
 export type Post = Prisma.PostModel
+/**
+ * Model Follow
+ * 
+ */
+export type Follow = Prisma.FollowModel
+/**
+ * Model Like
+ * 
+ */
+export type Like = Prisma.LikeModel

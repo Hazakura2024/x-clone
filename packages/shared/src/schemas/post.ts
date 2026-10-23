@@ -9,7 +9,7 @@ export const postSchema = z.object({
     id: z.string(),
     handle: z.string(),
     name: z.string(),
-    avatarUrl: z.string(),
+    avatarUrl: z.string().nullable(),
   }),
 });
 export type Post = z.infer<typeof postSchema>;
