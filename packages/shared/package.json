@@ -14,7 +14,7 @@
   },
   "scripts": {
     "build": "tsup src/index.ts --format cjs,esm && tsc --emitDeclarationOnly --declaration --outDir dist --rootDir src",
-    "dev": "tsup src/index.ts --format cjs,esm --dts --watch"
+    "dev": "tsup src/index.ts --format cjs,esm --watch --onSuccess \"tsc --emitDeclarationOnly --declaration --outDir dist --rootDir src\""
   },
   "dependencies": {
     "zod": "^4.6.7"
