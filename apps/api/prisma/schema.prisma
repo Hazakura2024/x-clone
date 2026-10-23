@@ -9,26 +9,69 @@ datasource db {
 }
 
 model User {
-    id String @id @default(cuid())
-    authId String @unique
+    id String @id @default(cuid(2))
+    authId String @unique @db.Uuid
     handle String @unique
     name String
     avatarUrl String?
     bio String?
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
-    deleteadAt DateTime?
+    deletedAt DateTime?
 
     posts Post[]
-}
+    likes Like[]
+    following Follow[] @relation("Follower")
+    followers Follow[] @relation("Following")
+
+    @@map("users")
+    }
 
 model Post {
-    id String @id @default(cuid())
+    id String @id @default(cuid(2))
     content String 
     authorId String
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
-    deleteadAt DateTime?
+    deletedAt DateTime?
 
     author User @relation(fields: [authorId], references: [id])
+    likes Like[]
+
+    // 学習メモ: 索引機能、この通りに番号を振って置いてくれるので、後からその順で取り出すときに内部でソートせずにそのまま用意が完了しており便利
+    @@index([createdAt(sort: Desc), id(sort: Desc)])
+    @@index([authorId, createdAt(sort: Desc), id(sort: Desc)])
+
+    @@map("posts")
+}
+
+model Follow {
+  followerId String
+  followingId String
+  createdAt DateTime @default(now())
+
+  follower User @relation("Follower", fields: [followerId], references: [id], onDelete: Cascade)
+  following User @relation("Following", fields: [followingId], references: [id], onDelete: Cascade)
+
+  @@id([followerId, followingId])
+
+  @@index([followingId, createdAt(sort: Desc)])
+
+  @@map("follows")
+}
+
+model Like {
+  userId String
+  postId String
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  post Post @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+  @@id([userId, postId])
+
+  @@index([postId])
+
+  @@index([userId, createdAt(sort: Desc)])
+  @@map("likes")
 }
