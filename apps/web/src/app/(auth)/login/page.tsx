@@ -17,7 +17,7 @@ export default function Home() {
               <Box></Box>
               <span>Googleで続ける</span>
             </Button>
-            <Button variant="outline" s className="w-full rounded-full h-12">
+            <Button variant="outline" className="w-full rounded-full h-12">
               <Box></Box>
               <span>Appleで続ける</span>
             </Button>
